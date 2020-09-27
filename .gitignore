@@ -1,0 +1,16 @@
+/account/node_modules
+/account/build
+
+# testing
+/account/coverage
+
+# environment variorbles
+.env
+
+# misc
+.DS_Store
+
+yarn-error.log*
+cemui.log
+cemui.info.log
+cemui.error.log
