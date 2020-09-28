@@ -8,11 +8,23 @@ import { sendErrorResponse } from '../utils/responseFormat';
 import { IAccount, AccountModel } from '../models/account.model';
 
 export let passportAuth = (req: Request, res: Response, next: NextFunction) => {
-  passport.authenticate('local', { session: false }, function (error, user: IAccount, info) {
-    if (!user) {
+  passport.authenticate('local', { session: false }, function (
+    error,
+    user: IAccount | undefined | false,
+    info:
+      | {
+          message: 'password' | 'email';
+        }
+      | undefined,
+  ) {
+    if (error) {
+      next(error);
+    }
+
+    if (!user && info?.message) {
       return sendErrorResponse(res, HttpStatus.UNAUTHORIZED, {
-        message: info.message === 'password' ? 'Incorrect password' : 'No email found',
-        fieldName: info.message,
+        message: info?.message === 'password' ? 'Incorrect password' : 'No email found',
+        fieldName: info?.message,
       });
     }
     // TODO it will need later.
@@ -21,9 +33,6 @@ export let passportAuth = (req: Request, res: Response, next: NextFunction) => {
     //     message: 'Your account is not verified yet',
     //   });
     // }
-    if (error) {
-      next(error);
-    }
 
     req.user = user;
     next();
