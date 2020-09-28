@@ -1,0 +1,17 @@
+version: '3'
+services:
+  account-service:
+    build: './account-service'
+    depends_on:
+      - db
+    environment:
+      - MONGO_HOST=mongodb://db/microservices
+    ports:
+      - '4040:4040'
+    # volumes:
+    #   - ./account-service:/app/src
+
+  db:
+    image: mongo
+    ports:
+      - '27017:27017'
