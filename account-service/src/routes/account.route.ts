@@ -24,7 +24,7 @@ import {
   resetPassword,
   avatarUpload,
   updateAccountBasicInfo,
-} from '../controllers/controller';
+} from '../controllers/account.controller';
 import '../services/passport.services';
 
 import { passportAuth, isAuth } from '../middlewares/auth';

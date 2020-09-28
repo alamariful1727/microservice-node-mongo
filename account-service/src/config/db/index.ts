@@ -38,7 +38,6 @@ export class MongoDB {
     this._mongoose
       .connect(mongoUri, this._connectOptions)
       .then(() => {
-        const mongoHost = mongoUri.search('localhost:27017') === -1 ? 'ATLAS' : 'Local';
         return console.log(`Successfully connected to MongoDB [${mongoUri}]`);
       })
       .catch((error: any) => {

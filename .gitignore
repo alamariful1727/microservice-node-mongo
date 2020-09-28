@@ -1,8 +1,8 @@
-/account/node_modules
-/account/build
+/account-service/node_modules
+/account-service/build
 
 # testing
-/account/coverage
+/account-service/coverage
 
 # environment variorbles
 .env
