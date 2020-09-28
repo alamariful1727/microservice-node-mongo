@@ -8,9 +8,9 @@ COPY . .
 
 RUN yarn
 
-# RUN yarn build
+RUN yarn build
 
 EXPOSE 4040
 
-# CMD yarn start
-CMD yarn dev
+CMD yarn start
+# CMD yarn dev
