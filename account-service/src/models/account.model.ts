@@ -60,18 +60,18 @@ const accountSchema: Schema = new Schema(
       type: String,
       trim: true,
     },
-    services: [
-      {
-        ref: 'Service',
-        type: Schema.Types.ObjectId,
-      },
-    ],
-    bookings: [
-      {
-        ref: 'Booking',
-        type: Schema.Types.ObjectId,
-      },
-    ],
+    // services: [
+    //   {
+    //     ref: 'Service',
+    //     type: Schema.Types.ObjectId,
+    //   },
+    // ],
+    // bookings: [
+    //   {
+    //     ref: 'Booking',
+    //     type: Schema.Types.ObjectId,
+    //   },
+    // ],
   },
   {
     timestamps: true,
